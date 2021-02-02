@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/services/api.service';
+import { user } from './../../models/users';
 
 @Component({
   selector: 'app-api',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiComponent implements OnInit {
 
-  constructor() { }
+  // user: user
+  constructor(private api: ApiService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    const user = await this.api.getUsers();
+    const documents = await this.api.getSubmittedDocument(user.oid);
+    console.log(documents)
   }
 
 }
