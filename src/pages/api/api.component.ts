@@ -18,9 +18,8 @@ export class ApiComponent implements OnInit {
 
     for (let doc of documents) {
       if (doc.caseParticipant) {
-        doc.participant = await this.api.getParticipantById(doc.caseParticipant)
+        doc.participant = await this.api.getParticipantById(doc.caseParticipant);
       }
-
       doc = new document(doc);
       doc.update()
     }
