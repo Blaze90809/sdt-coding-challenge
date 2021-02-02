@@ -1,12 +1,11 @@
 export interface user {
-
-        oid: string,
-        verified: boolean,
-        firstLogin: Date,
-        latestLogin: Date,
-        userAgreement: string,
-        accountLocked: boolean,
-        failedVerificationAttempts: number
+    oid: string,
+    verified: boolean,
+    firstLogin: Date,
+    latestLogin: Date,
+    userAgreement: string,
+    accountLocked: boolean,
+    failedVerificationAttempts: number
 }
 
 export interface participant {
@@ -17,7 +16,7 @@ export interface participant {
 
 export class document {
     public docSubmissionId?: number;
-    public documentType? : number;
+    public documentType?: number;
     public documentSubType?: number;
     public caseNumber?: number;
     public caseParticipant?: number;
@@ -41,7 +40,7 @@ export class document {
         } else if (this.document.documentType === 1 && this.document.documentSubType === 3) {
             this.document.caseType = "Income Award letter from Social Security Administration"
         } else if (this.document.documentType === 2) {
-           this.document.caseType = "Identity document"
+            this.document.caseType = "Identity document"
         } else if (this.document.documentType === 3) {
             this.document.caseType = "Shelter document"
         } else if (this.document.documentType === 4) {

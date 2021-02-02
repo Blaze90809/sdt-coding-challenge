@@ -1,2 +1,11 @@
-<p>Cases: </p>
-<div *ngFor="let d of documents">{{d.caseNumber}}</div>
+<h3>My document history</h3>
+<div *ngFor="let d of documents">
+    <div class="square">
+        <p class="insideText">{{d.submittedDate | date: 'd'}}</p>
+        <p class="insideText">{{d.submittedDate | date: 'LLL'}}</p>
+    </div>
+    <p>You have successfully submitted your {{d.caseType}}<span *ngIf="!d.participant">.</span>
+        <span *ngIf="d.participant"> for {{d.participant.firstName}} {{d.participant.lastName}}.</span>
+        ID: {{d.receiptCode}}
+    </p>
+</div>
