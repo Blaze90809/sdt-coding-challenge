@@ -20,7 +20,7 @@ export class ApiComponent implements OnInit {
         doc.participant = await this.api.getParticipantById(doc.caseParticipant);
       }
     }
+    documents.sort((a, b) => a.submittedDate > b.submittedDate ? -1 : (a.submittedDate < b.submittedDate ? 1 : 0))
     this.documents = documents;
   }
-
 }
