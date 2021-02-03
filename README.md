@@ -4,7 +4,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
 
-If you do not have Angular CLI installed on your computer, please follow the startup instructions (https://angular.io/guide/setup-local) before starting on this project.
+If you do not have Angular CLI installed on your computer, please follow the [startup instructions](https://angular.io/guide/setup-local) before starting on this project.
 
 ## Get Started
 
