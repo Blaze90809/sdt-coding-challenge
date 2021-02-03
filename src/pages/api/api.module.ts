@@ -5,6 +5,8 @@ import { ApiRoutingModule } from './api-routing.module';
 import { ApiComponent } from './api.component';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     ApiRoutingModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCardModule,
+    MatToolbarModule
   ]
 })
 export class ApiModule { }

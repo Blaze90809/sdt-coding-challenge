@@ -1,12 +1,15 @@
-<h3>My document history</h3>
-<div fxLayout="row" *ngFor="let d of documents" class="divStyle">
+<mat-toolbar class="toolbarBackground">
+    <h3 class="headerStyle">My document history</h3>
+</mat-toolbar>
+<mat-card fxLayout="row" *ngFor="let d of documents" class="divStyle">
     <div class="square">
         <p class="insideText">{{d.submittedDate | date: 'd'}}</p>
         <p class="insideText">{{d.submittedDate | date: 'LLL'}}</p>
     </div>
     <div fxFlex="row wrap">
         <p>You have successfully submitted your {{d.caseType}}<span *ngIf="!d.participant">.</span>
-            <span *ngIf="d.participant"> for {{d.participant.firstName}} {{d.participant.lastName}}.</span> ID: {{d.receiptCode}}
+            <span *ngIf="d.participant"> for {{d.participant.firstName}} {{d.participant.lastName}}.</span>
+            <span class="heavyFont"> ID: {{d.receiptCode}}</span>
         </p>
     </div>
-</div>
+</mat-card>

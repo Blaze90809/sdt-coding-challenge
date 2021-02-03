@@ -15,6 +15,22 @@
 }
 
 .divStyle {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 0.1px solid lightgray;
+}
+
+.heavyFont {
+    font-weight: bold;
+}
+
+.headerStyle {
+    margin: 20px;
+    color: #ffffff;
+}
+
+.toolbarBackground {
+    background-color: #113c66;
 }
