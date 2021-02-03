@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ApiRoutingModule } from './api-routing.module';
 import { ApiComponent } from './api.component';
 import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ApiRoutingModule,
-    FormsModule
+    FormsModule,
+    FlexLayoutModule
   ]
 })
 export class ApiModule { }
