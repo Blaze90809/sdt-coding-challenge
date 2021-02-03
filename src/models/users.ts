@@ -1,4 +1,4 @@
-export interface user {
+export interface User {
     oid: string,
     verified: boolean,
     firstLogin: Date,
@@ -8,43 +8,71 @@ export interface user {
     failedVerificationAttempts: number
 }
 
-export interface participant {
+export interface Participant {
     maxisParticipantId: number;
     firstName: string;
     lastName: string;
 }
 
-export class document {
-    public docSubmissionId?: number;
-    public documentType?: number;
-    public documentSubType?: number;
-    public caseNumber?: number;
-    public caseParticipant?: number;
-    public pageCount?: number;
-    public receiptCode?: string;
-    public numberOfFiles?: number;
-    public email?: string;
-    public submitterOID?: string;
-    public submittedDate?: Date;
-    public processedDate?: Date;
+export class Document {
+    docSubmissionId: number;
+    documentType: number;
+    documentSubType: number;
+    caseNumber: number;
+    caseParticipant: number;
+    pageCount: number;
+    receiptCode: string;
+    numberOfFiles: number;
+    email: string;
+    submitterOID: string;
+    submittedDate: Date;
+    processedDate: Date;
 
     // Additional properties
-    public caseType?: string;
-    public participant?: participant;
+    caseType?: string;
+    participant?: Participant;
 
-    constructor(public document: document) { }
+    constructor(public document: Document) {
+        this.docSubmissionId = document.docSubmissionId;
+        this.documentSubType = document.documentSubType;
+        this.documentType = document.documentType;
+        this.caseNumber = document.caseNumber;
+        this.caseParticipant = document.caseParticipant;
+        this.pageCount = document.pageCount;
+        this.receiptCode = document.receiptCode;
+        this.numberOfFiles = document.numberOfFiles;
+        this.email = document.email;
+        this.submitterOID = document.submitterOID;
+        this.submittedDate = document.submittedDate;
+        this.processedDate = document.processedDate;
+        this.caseType = this.update(document.documentType, document.documentSubType)
+    }
 
-    public async update() {
-        if (this.document.documentType === 1 && this.document.documentSubType === 1) {
-            this.document.caseType = "Income Employer verification"
-        } else if (this.document.documentType === 1 && this.document.documentSubType === 3) {
-            this.document.caseType = "Income Award letter from Social Security Administration"
-        } else if (this.document.documentType === 2) {
-            this.document.caseType = "Identity document"
-        } else if (this.document.documentType === 3) {
-            this.document.caseType = "Shelter document"
-        } else if (this.document.documentType === 4) {
-            this.document.caseType = "Combined Six Month report"
+    update(documentType: number, documentSubType: number) {
+        let docType = '';
+        switch (documentType) {
+            case 1:
+                if (documentSubType === 1) {
+                    docType = "Income Employer verification"
+                    break;
+                } else if (documentSubType === 3) {
+                    docType = "Income Award letter from Social Security Administration"
+                    break;
+                }
+                break;
+            case 2:
+                docType = "Identity document"
+                break;
+            case 3:
+                docType = "Shelter document"
+                break;
+            case 4:
+                docType = "Combined Six Month report"
+                break;
+            default:
+                docType = ''
+                break;
         }
+        return docType
     }
 }
